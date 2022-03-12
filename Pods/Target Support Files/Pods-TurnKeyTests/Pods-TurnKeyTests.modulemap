@@ -1,0 +1,6 @@
+framework module Pods_TurnKeyTests {
+  umbrella header "Pods-TurnKeyTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
