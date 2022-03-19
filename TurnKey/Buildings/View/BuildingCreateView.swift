@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
+protocol BuildingCreateDelegate: AnyObject {
+    func createBuilding()
+}
+
 class BuildingCreateView: UIView, ViewConfiguration {
+    
+    weak var delegate: BuildingCreateDelegate?
 
     lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -30,6 +36,7 @@ class BuildingCreateView: UIView, ViewConfiguration {
     lazy var buttonAdd: UIButton = {
         let button = UIButton()
         button.applyStyle(title: "Adicionar", bgColor: .customBasicYellow, fontName: .nunitoBold, size: 16)
+        button.addTarget(self, action: #selector(createBuilding), for: .touchUpInside)
         return button
     }()
     
@@ -46,13 +53,18 @@ class BuildingCreateView: UIView, ViewConfiguration {
         ]
     }
     
-    func setupView() {
+    func setupView(delegate: BuildingCreateDelegate) {
+        self.delegate = delegate
         initialize()
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func createBuilding() {
+        delegate?.createBuilding()
     }
     
     func addViews() {

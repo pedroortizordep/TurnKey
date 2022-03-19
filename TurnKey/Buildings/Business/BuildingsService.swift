@@ -27,4 +27,20 @@ class BuildingsService {
                 completion(buildings)
             }
     }
+    
+    func createBuilding(building: Building, completion: @escaping (Result<String, Error>) -> ()) {
+        
+        let headers: HTTPHeaders = [
+            .contentType("application/json")
+        ]
+        
+        let parameters: [String: Any] = [
+            "client_name": building.name
+        ]
+        
+        AF.request("\(baseURL)/building_create", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
+            .response { response in
+                
+            }
+    }
 }

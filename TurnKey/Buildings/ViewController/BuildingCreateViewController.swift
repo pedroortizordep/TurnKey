@@ -16,7 +16,7 @@ class BuildingCreateViewController: UIViewController, ViewConfiguration {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-        customView.setupView()
+        customView.setupView(delegate: self)
         navigationItem.title = "Nova Obra"
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
@@ -30,5 +30,11 @@ class BuildingCreateViewController: UIViewController, ViewConfiguration {
         customView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         customView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         customView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+}
+
+extension BuildingCreateViewController: BuildingCreateDelegate {
+    func createBuilding() {
+        viewModel.createBuilding()
     }
 }

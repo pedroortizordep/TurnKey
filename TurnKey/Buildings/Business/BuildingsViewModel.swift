@@ -29,4 +29,10 @@ class BuildingsViewModel {
             self.buildings = buildings
         }
     }
+    
+    func createBuilding() {
+        self.buildingsService.createBuilding(building: Building(name: "SpiderMan", address: "")) { result in
+            
+        }
+    }
 }
