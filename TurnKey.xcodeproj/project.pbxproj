@@ -17,6 +17,23 @@
 		A810823F27DC3965009B850B /* TurnKeyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810823E27DC3965009B850B /* TurnKeyUITests.swift */; };
 		A810824127DC3965009B850B /* TurnKeyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810824027DC3965009B850B /* TurnKeyUITestsLaunchTests.swift */; };
 		A810824F27DC40D6009B850B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810824E27DC40D6009B850B /* LoginViewController.swift */; };
+		A810825127DCCE65009B850B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810825027DCCE65009B850B /* LoginViewModel.swift */; };
+		A810825927DCEA8A009B850B /* BuildingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810825827DCEA8A009B850B /* BuildingsViewController.swift */; };
+		A810825B27DCEA96009B850B /* BuildingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810825A27DCEA96009B850B /* BuildingsViewModel.swift */; };
+		A810825D27DCEE53009B850B /* BuildingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810825C27DCEE53009B850B /* BuildingsService.swift */; };
+		A810825F27DCEE9D009B850B /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810825E27DCEE9D009B850B /* Building.swift */; };
+		A810826227DCF9C8009B850B /* BuildingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810826127DCF9C8009B850B /* BuildingsView.swift */; };
+		A881184027DDA0F8003FE8D8 /* BuildingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881183F27DDA0F8003FE8D8 /* BuildingsCell.swift */; };
+		A881184827DDA598003FE8D8 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A881184427DDA598003FE8D8 /* Nunito-Bold.ttf */; };
+		A881184927DDA598003FE8D8 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A881184527DDA598003FE8D8 /* Nunito-Regular.ttf */; };
+		A881184A27DDA598003FE8D8 /* Nunito-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A881184627DDA598003FE8D8 /* Nunito-SemiBold.ttf */; };
+		A881184B27DDA598003FE8D8 /* Nunito-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A881184727DDA598003FE8D8 /* Nunito-Light.ttf */; };
+		A8E639EB27E2A37E00C1C3AB /* BuildingCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E639EA27E2A37E00C1C3AB /* BuildingCreateViewController.swift */; };
+		A8E639ED27E2A41F00C1C3AB /* BuildingCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E639EC27E2A41F00C1C3AB /* BuildingCreateView.swift */; };
+		A8E639F227E60BB500C1C3AB /* FormTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E639F127E60BB400C1C3AB /* FormTextView.swift */; };
+		A8FEA18127DE3C5000C317FD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FEA18027DE3C5000C317FD /* Extensions.swift */; };
+		A8FEA18427DE3E1B00C317FD /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FEA18327DE3E1B00C317FD /* Enums.swift */; };
+		A8FEA18627DE3E5F00C317FD /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FEA18527DE3E5F00C317FD /* Protocols.swift */; };
 		C2A0B717926E4211A1B93B13 /* Pods_TurnKey_TurnKeyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF19EF295B99877720E8B34E /* Pods_TurnKey_TurnKeyUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +73,23 @@
 		A810823E27DC3965009B850B /* TurnKeyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnKeyUITests.swift; sourceTree = "<group>"; };
 		A810824027DC3965009B850B /* TurnKeyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnKeyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A810824E27DC40D6009B850B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A810825027DCCE65009B850B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A810825827DCEA8A009B850B /* BuildingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsViewController.swift; sourceTree = "<group>"; };
+		A810825A27DCEA96009B850B /* BuildingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsViewModel.swift; sourceTree = "<group>"; };
+		A810825C27DCEE53009B850B /* BuildingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsService.swift; sourceTree = "<group>"; };
+		A810825E27DCEE9D009B850B /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
+		A810826127DCF9C8009B850B /* BuildingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsView.swift; sourceTree = "<group>"; };
+		A881183F27DDA0F8003FE8D8 /* BuildingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsCell.swift; sourceTree = "<group>"; };
+		A881184427DDA598003FE8D8 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		A881184527DDA598003FE8D8 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		A881184627DDA598003FE8D8 /* Nunito-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-SemiBold.ttf"; sourceTree = "<group>"; };
+		A881184727DDA598003FE8D8 /* Nunito-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Light.ttf"; sourceTree = "<group>"; };
+		A8E639EA27E2A37E00C1C3AB /* BuildingCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingCreateViewController.swift; sourceTree = "<group>"; };
+		A8E639EC27E2A41F00C1C3AB /* BuildingCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingCreateView.swift; sourceTree = "<group>"; };
+		A8E639F127E60BB400C1C3AB /* FormTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextView.swift; sourceTree = "<group>"; };
+		A8FEA18027DE3C5000C317FD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A8FEA18327DE3E1B00C317FD /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		A8FEA18527DE3E5F00C317FD /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		AF19EF295B99877720E8B34E /* Pods_TurnKey_TurnKeyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TurnKey_TurnKeyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9012A1293E5813DDF8083C /* Pods-TurnKey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TurnKey.debug.xcconfig"; path = "Target Support Files/Pods-TurnKey/Pods-TurnKey.debug.xcconfig"; sourceTree = "<group>"; };
 		E2381E8B4F88EFECBE9E999D /* Pods_TurnKey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TurnKey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +161,9 @@
 		A810821C27DC395F009B850B /* TurnKey */ = {
 			isa = PBXGroup;
 			children = (
+				A8E639F027E60B9B00C1C3AB /* Components */,
+				A881184227DDA57E003FE8D8 /* Utils */,
+				A810825727DCEA7A009B850B /* Buildings */,
 				A810824D27DC40C6009B850B /* Login */,
 				A810821D27DC395F009B850B /* AppDelegate.swift */,
 				A810821F27DC395F009B850B /* SceneDelegate.swift */,
@@ -158,8 +195,78 @@
 			isa = PBXGroup;
 			children = (
 				A810824E27DC40D6009B850B /* LoginViewController.swift */,
+				A810825027DCCE65009B850B /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		A810825727DCEA7A009B850B /* Buildings */ = {
+			isa = PBXGroup;
+			children = (
+				A8E639EF27E2A45200C1C3AB /* Business */,
+				A8E639EE27E2A43A00C1C3AB /* ViewController */,
+				A881183E27DDA0C8003FE8D8 /* View */,
+			);
+			path = Buildings;
+			sourceTree = "<group>";
+		};
+		A881183E27DDA0C8003FE8D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A810826127DCF9C8009B850B /* BuildingsView.swift */,
+				A8E639EC27E2A41F00C1C3AB /* BuildingCreateView.swift */,
+				A881183F27DDA0F8003FE8D8 /* BuildingsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A881184227DDA57E003FE8D8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A8FEA18027DE3C5000C317FD /* Extensions.swift */,
+				A8FEA18327DE3E1B00C317FD /* Enums.swift */,
+				A8FEA18527DE3E5F00C317FD /* Protocols.swift */,
+				A881184327DDA588003FE8D8 /* Font */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A881184327DDA588003FE8D8 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				A881184427DDA598003FE8D8 /* Nunito-Bold.ttf */,
+				A881184727DDA598003FE8D8 /* Nunito-Light.ttf */,
+				A881184527DDA598003FE8D8 /* Nunito-Regular.ttf */,
+				A881184627DDA598003FE8D8 /* Nunito-SemiBold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		A8E639EE27E2A43A00C1C3AB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A810825827DCEA8A009B850B /* BuildingsViewController.swift */,
+				A8E639EA27E2A37E00C1C3AB /* BuildingCreateViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A8E639EF27E2A45200C1C3AB /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				A810825E27DCEE9D009B850B /* Building.swift */,
+				A810825C27DCEE53009B850B /* BuildingsService.swift */,
+				A810825A27DCEA96009B850B /* BuildingsViewModel.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		A8E639F027E60B9B00C1C3AB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A8E639F127E60BB400C1C3AB /* FormTextView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		C347CEE2C760265277360013 /* Frameworks */ = {
@@ -183,6 +290,7 @@
 				A810821627DC395F009B850B /* Sources */,
 				A810821727DC395F009B850B /* Frameworks */,
 				A810821827DC395F009B850B /* Resources */,
+				64BDB38C6ACBFD3755E4091F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,6 +328,7 @@
 				A810823627DC3965009B850B /* Sources */,
 				A810823727DC3965009B850B /* Frameworks */,
 				A810823827DC3965009B850B /* Resources */,
+				E079E2E8B858296BB7F6A065 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -280,7 +389,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A810822A27DC3965009B850B /* LaunchScreen.storyboard in Resources */,
+				A881184827DDA598003FE8D8 /* Nunito-Bold.ttf in Resources */,
+				A881184B27DDA598003FE8D8 /* Nunito-Light.ttf in Resources */,
+				A881184927DDA598003FE8D8 /* Nunito-Regular.ttf in Resources */,
 				A810822727DC3965009B850B /* Assets.xcassets in Resources */,
+				A881184A27DDA598003FE8D8 /* Nunito-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +458,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		64BDB38C6ACBFD3755E4091F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TurnKey/Pods-TurnKey-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TurnKey/Pods-TurnKey-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TurnKey/Pods-TurnKey-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B3BDBEC446E8AF381B3E176A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +497,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E079E2E8B858296BB7F6A065 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TurnKey-TurnKeyUITests/Pods-TurnKey-TurnKeyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TurnKey-TurnKeyUITests/Pods-TurnKey-TurnKeyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TurnKey-TurnKeyUITests/Pods-TurnKey-TurnKeyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -374,9 +521,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E639EB27E2A37E00C1C3AB /* BuildingCreateViewController.swift in Sources */,
+				A8E639F227E60BB500C1C3AB /* FormTextView.swift in Sources */,
+				A810825127DCCE65009B850B /* LoginViewModel.swift in Sources */,
 				A810824F27DC40D6009B850B /* LoginViewController.swift in Sources */,
+				A8E639ED27E2A41F00C1C3AB /* BuildingCreateView.swift in Sources */,
+				A810825B27DCEA96009B850B /* BuildingsViewModel.swift in Sources */,
 				A810821E27DC395F009B850B /* AppDelegate.swift in Sources */,
+				A810825927DCEA8A009B850B /* BuildingsViewController.swift in Sources */,
+				A881184027DDA0F8003FE8D8 /* BuildingsCell.swift in Sources */,
+				A810825D27DCEE53009B850B /* BuildingsService.swift in Sources */,
+				A810826227DCF9C8009B850B /* BuildingsView.swift in Sources */,
 				A810822027DC395F009B850B /* SceneDelegate.swift in Sources */,
+				A8FEA18627DE3E5F00C317FD /* Protocols.swift in Sources */,
+				A8FEA18127DE3C5000C317FD /* Extensions.swift in Sources */,
+				A8FEA18427DE3E1B00C317FD /* Enums.swift in Sources */,
+				A810825F27DCEE9D009B850B /* Building.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +708,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q352GCJU8N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TurnKey/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -575,6 +736,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q352GCJU8N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TurnKey/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
