@@ -13,11 +13,18 @@ class BuildingsViewModel {
     
     private(set) var buildings: [Building] {
         didSet {
-            self.bindBuildingViewModelToController()
+            self.bindBuildingsViewModelToController()
         }
     }
     
-    var bindBuildingViewModelToController: (() -> ()) = {}
+    private(set) var newBuilding: Building? {
+        didSet {
+            self.bindNewBuildingViewModelToController()
+        }
+    }
+    
+    var bindBuildingsViewModelToController: (() -> ()) = {}
+    var bindNewBuildingViewModelToController: (() -> ()) = {}
     
     init() {
         buildingsService = BuildingsService()
@@ -25,14 +32,26 @@ class BuildingsViewModel {
     }
     
     func getBuildings() {
-        self.buildingsService.getBuildings { buildings in
-            self.buildings = buildings
+        self.buildingsService.getBuildings { result in
+            
+            switch result {
+            case .success(let buildings):
+                self.buildings = buildings
+            case .failure(let error):
+                debugPrint(error)
+            }
         }
     }
     
     func createBuilding() {
-        self.buildingsService.createBuilding(building: Building(name: "SpiderMan", address: "")) { result in
+        self.buildingsService.createBuilding(building: Building(clientName: "Pedro", buildingName: "Casa Pedro", responsibleName: "Grazi", beginDate: "03/02/2022", deliveryDate: "05/05/2022", status: "Em andamento")) { result in
             
+            switch result {
+            case .success(let newBuilding):
+                self.newBuilding = newBuilding
+            case .failure(let error):
+                debugPrint(error)
+            }
         }
     }
 }

@@ -40,8 +40,14 @@ class BuildingsViewController: UIViewController, ViewConfiguration {
     }
     
     func bindBuildings() {
-        viewModel.bindBuildingViewModelToController = {
+        viewModel.bindBuildingsViewModelToController = {
             self.customView.tableViewBuildings.reloadData()
+        }
+    }
+    
+    func bindNewBuildings() {
+        viewModel.bindNewBuildingViewModelToController = {
+            
         }
     }
     

@@ -8,19 +8,21 @@
 import Foundation
 
 struct Building: Decodable {
-    let name: String
-    let address: String
-//    let responsible: String
-//    let initDate: String
-//    let deliveryDate: String
-//    let status: String
+    var id: Int? = nil
+    let clientName: String
+    let buildingName: String
+    let responsibleName: String
+    let beginDate: String
+    let deliveryDate: String
+    let status: String
     
     enum CodingKeys: String, CodingKey {
-        case name = "client_name"
-        case address
-//        case responsible
-//        case initDate
-//        case deliveryDate
-//        case status
+        case id
+        case clientName = "client_name"
+        case buildingName = "building_name"
+        case responsibleName = "responsible_name"
+        case beginDate = "begin_date"
+        case deliveryDate = "delivery_date"
+        case status
     }
 }

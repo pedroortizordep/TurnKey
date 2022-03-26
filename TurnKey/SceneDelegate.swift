@@ -7,6 +7,8 @@
 
 import UIKit
 
+var USING_MOCK = true
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

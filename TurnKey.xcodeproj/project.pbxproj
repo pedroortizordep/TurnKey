@@ -23,6 +23,8 @@
 		A810825D27DCEE53009B850B /* BuildingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810825C27DCEE53009B850B /* BuildingsService.swift */; };
 		A810825F27DCEE9D009B850B /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810825E27DCEE9D009B850B /* Building.swift */; };
 		A810826227DCF9C8009B850B /* BuildingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810826127DCF9C8009B850B /* BuildingsView.swift */; };
+		A84C4C2227EEB8F900302126 /* buildings.json in Resources */ = {isa = PBXBuildFile; fileRef = A84C4C2127EEB8F900302126 /* buildings.json */; };
+		A84C4C2527EEBEA400302126 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C4C2427EEBEA400302126 /* Service.swift */; };
 		A881184027DDA0F8003FE8D8 /* BuildingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A881183F27DDA0F8003FE8D8 /* BuildingsCell.swift */; };
 		A881184827DDA598003FE8D8 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A881184427DDA598003FE8D8 /* Nunito-Bold.ttf */; };
 		A881184927DDA598003FE8D8 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A881184527DDA598003FE8D8 /* Nunito-Regular.ttf */; };
@@ -79,6 +81,8 @@
 		A810825C27DCEE53009B850B /* BuildingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsService.swift; sourceTree = "<group>"; };
 		A810825E27DCEE9D009B850B /* Building.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		A810826127DCF9C8009B850B /* BuildingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsView.swift; sourceTree = "<group>"; };
+		A84C4C2127EEB8F900302126 /* buildings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = buildings.json; sourceTree = "<group>"; };
+		A84C4C2427EEBEA400302126 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		A881183F27DDA0F8003FE8D8 /* BuildingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingsCell.swift; sourceTree = "<group>"; };
 		A881184427DDA598003FE8D8 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		A881184527DDA598003FE8D8 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
@@ -210,6 +214,22 @@
 			path = Buildings;
 			sourceTree = "<group>";
 		};
+		A84C4C2027EEB89200302126 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A84C4C2127EEB8F900302126 /* buildings.json */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A84C4C2327EEBE9700302126 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A84C4C2427EEBEA400302126 /* Service.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		A881183E27DDA0C8003FE8D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +243,8 @@
 		A881184227DDA57E003FE8D8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A84C4C2327EEBE9700302126 /* Components */,
+				A84C4C2027EEB89200302126 /* Mocks */,
 				A8FEA18027DE3C5000C317FD /* Extensions.swift */,
 				A8FEA18327DE3E1B00C317FD /* Enums.swift */,
 				A8FEA18527DE3E5F00C317FD /* Protocols.swift */,
@@ -388,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84C4C2227EEB8F900302126 /* buildings.json in Resources */,
 				A810822A27DC3965009B850B /* LaunchScreen.storyboard in Resources */,
 				A881184827DDA598003FE8D8 /* Nunito-Bold.ttf in Resources */,
 				A881184B27DDA598003FE8D8 /* Nunito-Light.ttf in Resources */,
@@ -532,6 +555,7 @@
 				A881184027DDA0F8003FE8D8 /* BuildingsCell.swift in Sources */,
 				A810825D27DCEE53009B850B /* BuildingsService.swift in Sources */,
 				A810826227DCF9C8009B850B /* BuildingsView.swift in Sources */,
+				A84C4C2527EEBEA400302126 /* Service.swift in Sources */,
 				A810822027DC395F009B850B /* SceneDelegate.swift in Sources */,
 				A8FEA18627DE3E5F00C317FD /* Protocols.swift in Sources */,
 				A8FEA18127DE3C5000C317FD /* Extensions.swift in Sources */,
