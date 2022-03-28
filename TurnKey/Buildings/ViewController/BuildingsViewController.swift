@@ -11,6 +11,9 @@ import UIKit
 class BuildingsViewController: UIViewController, ViewConfiguration {
     
     private var customView: BuildingsView = BuildingsView()
+    
+    private let searchController = UISearchController()
+    
     private var viewModel: BuildingsViewModel = BuildingsViewModel()
     
     override func viewDidLoad() {
@@ -20,18 +23,44 @@ class BuildingsViewController: UIViewController, ViewConfiguration {
     }
     
     private func setup() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .add,
-            target: self,
-            action: #selector(goToBuildingCreate)
-        )
+        navigationItem.title = "Obras"
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.prefersLargeTitles = true
+        setupNavigation()
+        setupSearchBar()
         
         initialize()
         customView.setupView(delegate: self, dataSource: self)
         bindBuildings()
+    }
+    
+    private func setupNavigation() {
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(
+                barButtonSystemItem: .add,
+                target: self,
+                action: #selector(goToBuildingCreate)
+            ),
+            UIBarButtonItem(
+                image: UIImage(named: "Notification"),
+                style: .plain,
+                target: self,
+                action: #selector(goToBuildingCreate)
+            )
+        ]
+        
+        navigationItem.rightBarButtonItems?.forEach({ item in
+            item.tintColor = .customBasicYellow
+        })
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func setupSearchBar() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.tintColor = .customBasicYellow
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     @objc func goToBuildingCreate() {
@@ -72,20 +101,41 @@ extension BuildingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.buildings.count
+        return viewModel.buildings.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        if indexPath.row == 0 { return 80 }
+        return 116
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "buildingsCell", for: indexPath) as? BuildingsCell {
-            let building = self.viewModel.buildings[indexPath.row]
-            cell.configure(building: building)
-            return cell
+        if indexPath.row == 0 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as? StatusCell {
+                cell.configure(delegate: self)
+                return cell
+            }
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "buildingsCell", for: indexPath) as? BuildingsCell {
+                let building = self.viewModel.buildings[indexPath.row - 1]
+                cell.configure(building: building)
+                return cell
+            }
         }
         
         return UITableViewCell()
+    }
+}
+
+extension BuildingsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        viewModel.filterBuildings(filter: text)
+    }
+}
+
+extension BuildingsViewController: StatusFilterDelegate {
+    func filterStatus(status: BuildingStatus) {
+        viewModel.filterBuildings(status: status)
     }
 }

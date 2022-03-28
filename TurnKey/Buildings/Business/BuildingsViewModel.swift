@@ -11,6 +11,8 @@ class BuildingsViewModel {
     
     private var buildingsService: BuildingsService
     
+    var allBuildings: [Building] = []
+    
     private(set) var buildings: [Building] {
         didSet {
             self.bindBuildingsViewModelToController()
@@ -31,12 +33,39 @@ class BuildingsViewModel {
         buildings = []
     }
     
+    func filterBuildings(filter: String) {
+        
+        var buildingsFiltered = allBuildings.filter { building in
+            return building.clientName.contains(filter)
+        }
+        
+        if filter.isEmpty {
+            buildingsFiltered = self.allBuildings
+        }
+        
+        buildings = buildingsFiltered
+    }
+    
+    func filterBuildings(status: BuildingStatus) {
+        
+        var buildingsFiltered = allBuildings.filter { building in
+            return building.status == status.rawValue
+        }
+        
+        if status == .none {
+            buildingsFiltered = self.allBuildings
+        }
+        
+        buildings = buildingsFiltered
+    }
+    
     func getBuildings() {
         self.buildingsService.getBuildings { result in
             
             switch result {
             case .success(let buildings):
                 self.buildings = buildings
+                self.allBuildings = buildings
             case .failure(let error):
                 debugPrint(error)
             }

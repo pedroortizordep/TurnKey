@@ -13,3 +13,12 @@ enum FontName: String {
     case nunitoRegular = "Nunito-Regular"
     case nunitoLight = "Nunito-Light"
 }
+
+enum BuildingStatus: String {
+    case late = "Atrasada"
+    case onGoing = "Em andamento"
+    case done = "Concluída"
+    case paused = "Pausada"
+    case notInitiated = "Não iniciada"
+    case none
+}

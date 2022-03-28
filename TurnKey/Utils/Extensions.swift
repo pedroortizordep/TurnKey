@@ -50,6 +50,7 @@ extension UIColor {
     
     static let customTextGray = UIColor(hexString: "#8B8B8B")
     static let customBackGroundGray = UIColor(hexString: "#F4F3F3")
+    static let customButtonBackGroundGray = UIColor(hexString: "#CFCFCF")
     
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

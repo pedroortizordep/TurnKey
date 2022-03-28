@@ -14,6 +14,8 @@ class BuildingsView: UIView, ViewConfiguration {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.register(StatusCell.self, forCellReuseIdentifier: "statusCell")
         tableView.register(BuildingsCell.self, forCellReuseIdentifier: "buildingsCell")
         return tableView
     }()
@@ -21,6 +23,7 @@ class BuildingsView: UIView, ViewConfiguration {
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .white
     }
     
     func setupView(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
