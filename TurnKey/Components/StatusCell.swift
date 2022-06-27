@@ -8,57 +8,37 @@
 import Foundation
 import UIKit
 
-protocol StatusFilterDelegate {
-    func filterStatus(status: BuildingStatus)
+protocol OptionFilterDelegate {
+    func filterOption(option: String)
 }
 
-class StatusCell: UITableViewCell, ViewConfiguration {
-    
-    var delegate: StatusFilterDelegate?
-    
-    private lazy var viewContainer: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 8
-        view.backgroundColor = .clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private lazy var buttonDone = UIButton()
-    private lazy var buttonOnGoing = UIButton()
-    private lazy var buttonLate = UIButton()
-    private lazy var buttonPaused = UIButton()
-    private lazy var buttonNotInitiated = UIButton()
+class FilterOptionView: UIView, ViewConfiguration {
     
     private var buttons: [UIButton] = []
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        contentView.backgroundColor = .magenta
-    }
+    var delegate: OptionFilterDelegate?
     
-    func configure(delegate: StatusFilterDelegate) {
+    func configure(options: [String], delegate: OptionFilterDelegate) {
         self.delegate = delegate
-        buttons = [buttonDone, buttonOnGoing, buttonLate, buttonPaused, buttonNotInitiated]
         
-        var statusTypes: [BuildingStatus] = [.done, .onGoing, .late, .paused, .notInitiated]
-        
-        buttons.forEach { button in
-            button.applyStyle(title: statusTypes.removeFirst().rawValue, bgColor: .customButtonBackGroundGray, fontName: .nunitoBold, size: 10)
-            
-            if button.isSelected {
-                button.backgroundColor = .customBasicYellow
+        if buttons.isEmpty {
+            options.forEach { option in
+                
+                let button = UIButton()
+                button.applyStyle(title: option, bgColor: .customButtonBackGroundGray, fontName: .nunitoBold, size: 10)
+                
+                button.addTarget(self, action: #selector(didTapOption(sender:)), for: .touchUpInside)
+                button.layer.cornerRadius = 4
+                button.translatesAutoresizingMaskIntoConstraints = false
+                
+                buttons.append(button)
             }
             
-            button.addTarget(self, action: #selector(didTapStatus), for: .touchUpInside)
-            button.layer.cornerRadius = 4
+            initialize()
         }
-        
-        initialize()
     }
     
-    @objc func didTapStatus(sender: UIButton) {
-        
+    @objc func didTapOption(sender: UIButton) {
         buttons.forEach { button in
             button.backgroundColor = .customButtonBackGroundGray
             if button != sender { button.isSelected = false }
@@ -70,21 +50,75 @@ class StatusCell: UITableViewCell, ViewConfiguration {
             sender.backgroundColor = .customButtonBackGroundGray
         }
         
-        if let status = BuildingStatus(rawValue: sender.title(for: .normal) ?? "") {
+        delegate?.filterOption(option: sender.title(for: .normal) ?? "")
+    }
+    
+    func addViews() {
+        buttons.forEach { button in
+            addSubview(button)
+        }
+    }
+    
+    func addConstraints() {
+        
+        var leading: CGFloat = 24
+        var top: CGFloat = 8
+        
+        buttons.forEach { button in
             
-            if sender.isSelected { delegate?.filterStatus(status: status) } else {
-                delegate?.filterStatus(status: .none)
+            if leading > (UIScreen.main.bounds.width / 2) {
+                leading = 24
+                top += 36
             }
             
+            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leading).isActive = true
+            button.topAnchor.constraint(equalTo: topAnchor, constant: top).isActive = true
+            button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+            button.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            
+            leading += 88
         }
+    }
+}
+
+class StatusCell: UITableViewCell, ViewConfiguration {
+    
+    private lazy var viewContainer: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 8
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var viewOptions: FilterOptionView = {
+        let view = FilterOptionView()
+        view.isUserInteractionEnabled = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private var buttons: [UIButton] = []
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentView.backgroundColor = .magenta
+    }
+    
+    func configure(status: [BuildingStatus], delegate: OptionFilterDelegate) {
+        var options: [String] = []
+        
+        status.forEach { status in
+            options.append(status.rawValue)
+        }
+        
+        initialize()
+        viewOptions.configure(options: options, delegate: delegate)
     }
     
     func addViews() {
         addSubview(viewContainer)
-        
-        buttons.forEach { button in
-            viewContainer.addSubview(button)
-        }
+        viewContainer.addSubview(viewOptions)
     }
     
     func addConstraints() {
@@ -93,30 +127,10 @@ class StatusCell: UITableViewCell, ViewConfiguration {
         viewContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24).isActive = true
         viewContainer.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        buttonOnGoing.centerXAnchor.constraint(equalTo: viewContainer.centerXAnchor).isActive = true
-        buttonOnGoing.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        buttonOnGoing.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        buttonOnGoing.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        buttonDone.trailingAnchor.constraint(equalTo: buttonOnGoing.leadingAnchor, constant: -15).isActive = true
-        buttonDone.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        buttonDone.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        buttonDone.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        buttonLate.leadingAnchor.constraint(equalTo: buttonOnGoing.trailingAnchor, constant: 15).isActive = true
-        buttonLate.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
-        buttonLate.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        buttonLate.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        buttonPaused.centerXAnchor.constraint(equalTo: buttonDone.centerXAnchor, constant: 47).isActive = true
-        buttonPaused.topAnchor.constraint(equalTo: buttonDone.bottomAnchor, constant: 8).isActive = true
-        buttonPaused.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        buttonPaused.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        buttonNotInitiated.centerXAnchor.constraint(equalTo: buttonLate.centerXAnchor, constant: -47).isActive = true
-        buttonNotInitiated.topAnchor.constraint(equalTo: buttonLate.bottomAnchor, constant: 8).isActive = true
-        buttonNotInitiated.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        buttonNotInitiated.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        viewOptions.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor).isActive = true
+        viewOptions.topAnchor.constraint(equalTo: viewContainer.topAnchor).isActive = true
+        viewOptions.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor).isActive = true
+        viewOptions.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor).isActive = true
     }
 }
 

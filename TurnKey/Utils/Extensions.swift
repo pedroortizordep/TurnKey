@@ -16,9 +16,10 @@ extension ViewConfiguration {
 }
 
 extension UIButton {
-    func applyStyle(title: String, bgColor: UIColor, fontName: FontName, size: CGFloat) {
+    func applyStyle(title: String, bgColor: UIColor, textColor: UIColor? = .white, fontName: FontName, size: CGFloat) {
         setTitle(title, for: .normal)
         backgroundColor = bgColor
+        setTitleColor(textColor, for: .normal)
         titleLabel?.font = UIFont(name: fontName.rawValue, size: size)
         layer.cornerRadius = 8
         translatesAutoresizingMaskIntoConstraints = false
@@ -44,11 +45,14 @@ extension UITextField {
 
 extension UIColor {
     
-    static let customBasicYellow = UIColor(hexString: "#FF9900")
+    static let customBasicYellow = UIColor(hexString: "#F2B705")
     static let customBasicRed = UIColor(hexString: "#FF0000")
     static let customBasicGreen = UIColor(hexString: "#64CE33")
+    static let customBasicBlue = UIColor(hexString: "#3355CE")
+    static let customBasicGray = UIColor(hexString: "#404040")
     
     static let customTextGray = UIColor(hexString: "#8B8B8B")
+    static let customLightBackGroundGray = UIColor(hexString: "#DDDDDD")
     static let customBackGroundGray = UIColor(hexString: "#F4F3F3")
     static let customButtonBackGroundGray = UIColor(hexString: "#CFCFCF")
     

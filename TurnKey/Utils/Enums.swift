@@ -22,3 +22,13 @@ enum BuildingStatus: String {
     case notInitiated = "Não iniciada"
     case none
 }
+
+enum ActivityType: String {
+    case porcelanato = "Porcelanato"
+}
+
+enum TurnKeyError: Error {
+    case notFound
+    case generic
+    case none
+}

@@ -101,7 +101,7 @@
     {
         "id": 500,
         "client_name": "Seu Mock da Silva",
-        "building_name": "Casa do Mock",
+        "building_name": "Apartamento do Seu Mock",
         "responsible_name": "Pedro Del Rio Ortiz",
         "begin_date": "01/01/2022",
         "delivery_date": "01/01/2023",
@@ -110,7 +110,7 @@
     {
         "id": 500,
         "client_name": "Senhorita Mockada",
-        "building_name": "Casa do Mock",
+        "building_name": "Quarto Mockado",
         "responsible_name": "Pedro Del Rio Ortiz",
         "begin_date": "01/01/2022",
         "delivery_date": "01/01/2023",

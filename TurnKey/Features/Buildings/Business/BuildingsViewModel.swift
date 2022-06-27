@@ -25,8 +25,15 @@ class BuildingsViewModel {
         }
     }
     
+    private(set) var errorState: TurnKeyError? {
+        didSet {
+            self.bindErrorViewModelToController()
+        }
+    }
+    
     var bindBuildingsViewModelToController: (() -> ()) = {}
     var bindNewBuildingViewModelToController: (() -> ()) = {}
+    var bindErrorViewModelToController: (() -> ()) = {}
     
     init() {
         buildingsService = BuildingsService()
@@ -39,11 +46,17 @@ class BuildingsViewModel {
             return building.clientName.contains(filter)
         }
         
+        if buildingsFiltered.isEmpty && !filter.isEmpty {
+            errorState = .notFound
+            return
+        }
+        
         if filter.isEmpty {
             buildingsFiltered = self.allBuildings
         }
         
         buildings = buildingsFiltered
+        errorState = TurnKeyError.none
     }
     
     func filterBuildings(status: BuildingStatus) {
@@ -57,6 +70,7 @@ class BuildingsViewModel {
         }
         
         buildings = buildingsFiltered
+        if buildings.isEmpty { errorState = .notFound }
     }
     
     func getBuildings() {
@@ -66,8 +80,8 @@ class BuildingsViewModel {
             case .success(let buildings):
                 self.buildings = buildings
                 self.allBuildings = buildings
-            case .failure(let error):
-                debugPrint(error)
+            case .failure(_):
+                self.errorState = .generic
             }
         }
     }

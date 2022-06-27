@@ -11,9 +11,7 @@ import UIKit
 class BuildingsViewController: UIViewController, ViewConfiguration {
     
     private var customView: BuildingsView = BuildingsView()
-    
     private let searchController = UISearchController()
-    
     private var viewModel: BuildingsViewModel = BuildingsViewModel()
     
     override func viewDidLoad() {
@@ -31,6 +29,8 @@ class BuildingsViewController: UIViewController, ViewConfiguration {
         initialize()
         customView.setupView(delegate: self, dataSource: self)
         bindBuildings()
+        bindNewBuilding()
+        bindErrorView()
     }
     
     private func setupNavigation() {
@@ -44,7 +44,7 @@ class BuildingsViewController: UIViewController, ViewConfiguration {
                 image: UIImage(named: "Notification"),
                 style: .plain,
                 target: self,
-                action: #selector(goToBuildingCreate)
+                action: #selector(goToNotifications)
             )
         ]
         
@@ -68,15 +68,26 @@ class BuildingsViewController: UIViewController, ViewConfiguration {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    @objc func goToNotifications() {
+        let viewController = NotificationsViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func bindBuildings() {
         viewModel.bindBuildingsViewModelToController = {
             self.customView.tableViewBuildings.reloadData()
         }
     }
     
-    func bindNewBuildings() {
+    func bindNewBuilding() {
         viewModel.bindNewBuildingViewModelToController = {
             
+        }
+    }
+    
+    func bindErrorView() {
+        viewModel.bindErrorViewModelToController = {
+            self.customView.showError(error: self.viewModel.errorState ?? .generic)
         }
     }
     
@@ -112,7 +123,7 @@ extension BuildingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as? StatusCell {
-                cell.configure(delegate: self)
+                cell.configure(status: [.done, .late, .notInitiated, .onGoing, .paused], delegate: self)
                 return cell
             }
         } else {
@@ -134,8 +145,9 @@ extension BuildingsViewController: UISearchResultsUpdating {
     }
 }
 
-extension BuildingsViewController: StatusFilterDelegate {
-    func filterStatus(status: BuildingStatus) {
-        viewModel.filterBuildings(status: status)
+extension BuildingsViewController: OptionFilterDelegate {
+    func filterOption(option: String) {
+        guard let buildingStatus = BuildingStatus(rawValue: option) else { return }
+        viewModel.filterBuildings(status: buildingStatus)
     }
 }
